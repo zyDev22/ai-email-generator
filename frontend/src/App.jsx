@@ -81,9 +81,14 @@ setResult(data.message);
       {result && (
   <div>
     <h2>Generated Email</h2>
+
     <div style={{ whiteSpace: "pre-wrap" }}>
       {result}
     </div>
+
+    <button onClick={() => navigator.clipboard.writeText(result)}>
+      Copy Email
+    </button>
   </div>
 )}
     </div>

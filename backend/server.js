@@ -53,11 +53,14 @@ Email:
 
     let message = response.choices[0].message.content;
 
-// Remove AI reasoning
-message = message.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+// Remove complete <think>...</think> sections
+message = message.replace(/<think>[\s\S]*?<\/think>/gi, "");
+
+// If <think> has no closing tag, remove everything before it
+message = message.replace(/<think>[\s\S]*/gi, "");
 
 // Remove anything after Key Notes
-message = message.split(/###\s*Key Notes/i)[0].trim();
+message = message.split(/###\s*Key Notes/i)[0];
 
 // Remove Markdown formatting
 message = message.replace(/\*\*/g, "");
@@ -65,7 +68,6 @@ message = message.replace(/^#+\s*/gm, "");
 
 // Clean excessive blank lines
 message = message.replace(/\n{3,}/g, "\n\n").trim();
-
     res.json({
       message,
     });
