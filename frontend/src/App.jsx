@@ -81,7 +81,9 @@ setResult(data.message);
       {result && (
   <div>
     <h2>Generated Email</h2>
-    <p>{result}</p>
+    <div style={{ whiteSpace: "pre-wrap" }}>
+      {result}
+    </div>
   </div>
 )}
     </div>
