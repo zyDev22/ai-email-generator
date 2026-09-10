@@ -52,8 +52,9 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <h1>AI Email Generator</h1>
+  <div className="app">
+    <div className="brand">MeeraZ</div>
+    <h1>AI Email Generator</h1>
 
       <div className="form-group">
         <label>What is the email about?</label>
